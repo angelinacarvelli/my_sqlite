@@ -1,0 +1,10 @@
+require Sqlite3
+
+class MySqliteRequest
+    
+    def initialize(table, type, data)
+        @table = table
+        @type = type
+        @data = data
+    end
+end
