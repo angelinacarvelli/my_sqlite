@@ -2,9 +2,8 @@ require Sqlite3
 
 class MySqliteRequest
     
-    def initialize(table, type, data)
-        @table = table
-        @type = type
-        @data = data
+    def initialize
+        @table = nil
+        @type = nil
+        @data = nil
     end
-end
