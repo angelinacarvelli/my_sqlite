@@ -1,9 +1,43 @@
-require Sqlite3
+require 'sqlite3'
 
 class MySqliteRequest
-    
-    def initialize
-        @table = nil
-        @type = nil
-        @data = nil
-    end
+  def initialize
+
+    @type_of_request = :none
+    @select_columns = []
+    @where_params = []
+    @table_name = nil
+    @join_params = nil
+    @order = :asc
+  end
+
+  def from(table_name)
+
+    @table_name = table_name
+    self
+  end
+
+  def select(columns)
+
+    @type_of_request = :select
+    @select_columns = columns.is_a?(Array) ? columns : [columns] # le ? = condition vrai faux
+    self
+  end
+
+  def where(column_name, value)
+
+    @where_params << { column: column_name, value: value }
+    self
+  end 
+  # retourne l objet même et << = mettre nouvel element fin tableau
+
+  def join(column_on_db_a, filename_db_b, column_on_db_b)
+
+    @join_params = {
+      col_a: column_on_db_a,
+      file_b: filename_db_b,
+      col_b: column_on_db_b
+    }
+    self
+  end
+end
