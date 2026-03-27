@@ -1,0 +1,8 @@
+ruby my_sqlite_request
+ruby my_sqlite_cli
+insert ; INSERT INTO users VALUES (name=Alice, age=25) / u can change VALUES / u can add By hand in test.rb !
+select : SELECT name,age FROM users / it will show {"name"=>"Alice", "age"=>"25"} / if u change values it will change (ofc)
+update : UPDATE users SET age=30 WHERE name=Alice / same u can change values
+can re select to see in entire : SELECT * FROM users / with test.RB u can change values, add too.
+delete : DELETE FROM users WHERE name=Alice 
+RE RE do select to see  SELECT * FROM users
